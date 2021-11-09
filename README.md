@@ -2,6 +2,7 @@
 1) Clone the repository into a local directory<br/>
 2) npm install ---> to install all dependencies<br/>
 3) Create a database called nubceo in your Postgres account<br/>
+  SQL command to create a new database and assign to a user: CREATE DATABASE <"namedatabase"> WITH OWNER <'nameowner'>;
 4) Create an .env file and add the following properties:<br/>
   DB_USER=your_postgres_user_account<br/>
   DB_PASSWORD=your_postgres_user_password<br/>
