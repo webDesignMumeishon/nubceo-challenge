@@ -30,6 +30,7 @@ module.exports = {
             return show.setDirector(director)
         })
         .then( async show => {
+            //looping through the array to add the actors into the database if they no exist yet
             for(let i of req.body.actors){
                 let addNewActor = await Actor.findOrCreate({
                     where: {name: i}

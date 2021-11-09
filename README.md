@@ -5,7 +5,9 @@
 4) Create an .env file and add the following properties:<br/>
   DB_USER=your_postgres_user_account<br/>
   DB_PASSWORD=your_postgres_user_password<br/>
-  DB_HOST=localhost:5432<br/>
+  DB_HOST=localhost:host_number. usually is 5432<br/>
+  Also de refresh token value, I let you use mine
+  REFRESH_TOKEN_SECRET=05db4fb59f7b164061aa49f8d09e10a6ec021ca2ef60a3daffe38e791cc5483b86c943bddad4a2ba76ebc1f6a034772ba224f29776ee15fc20a80d9366d785fb
 5) npm start. You are ready to go<br/>
 
 

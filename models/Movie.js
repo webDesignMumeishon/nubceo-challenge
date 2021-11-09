@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
-// Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
+// Exporting a function that defines the model
+// Then, the model is added into the sequelize connection
 module.exports = (sequelize) => {
 
     sequelize.define('movie', {
@@ -10,8 +10,7 @@ module.exports = (sequelize) => {
         },
         year: {
             type: DataTypes.INTEGER,
-            //Se desactiva el allownull para aquellos usuarios que ingresan con facebook, no se les requeire contraseña
-            // allowNull: false,
+            allowNull: false,
         },
     },
     {

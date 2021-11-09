@@ -37,6 +37,7 @@ module.exports = {
         })
         .then( async movie => {
             for(let i of req.body.actors){
+                //looping through the array to add the actors into the database if they no exist yet
                 let addNewActor = await Actor.findOrCreate({
                     where: {name: i}
                 })
@@ -54,7 +55,8 @@ module.exports = {
     },
 
     getAllMovies: (req, res) => {
-
+        //These are the variables to filter/order the movies. Initially is empty, if it keeps empty the 
+        //endpoint will return all the movies
         let movieFiltering = {}
         let genreFiltering = {}
         let orderTitle = [] 
@@ -75,7 +77,9 @@ module.exports = {
         }
 
         Movie.findAll({
+            //filtering movies by title or year
             where: movieFiltering,
+            //Ordering the movies by ASC or DESC
             order: orderTitle,
             attributes: ["title", "year"],
             include: [
@@ -89,6 +93,7 @@ module.exports = {
             },
             {
                 model: Genre,
+                //filtering movies by genre
                 where: genreFiltering,
                 attributes: ["name"]
             },

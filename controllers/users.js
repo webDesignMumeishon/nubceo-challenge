@@ -9,16 +9,17 @@ module.exports = {
   logUser: async (req, res) => {
     var { email, passwordInput } = req.body;
 
+    //We search for the email if the user is in the db
     const userToValidate = await User.findOne({
       where: {
         email: email
       }
     });
 
-
+    //in case the user is not found
     if (!userToValidate) return res.status(200).json(
       {
-        message: "El correo ingresado no existe.",
+        message: "The email does not exist.",
         success: false
       }
     )
@@ -53,6 +54,7 @@ module.exports = {
   },
 
   logOut: async (req, res) => {
+    //deleting the token from Token table
     const result = await Token.destroy({
       where: {
         token: req.body.token
@@ -68,6 +70,7 @@ module.exports = {
   postNewUser: async (req, res) => {
 
     if(!req.body.email.length || !req.body.passwordInput){
+      //email and password are mandatory to create a new user
       return res.status(400).json({message: "Missing arguments", success: false})
     }
 
